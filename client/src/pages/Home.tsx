@@ -8,39 +8,35 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        {/* Background Image & Overlay */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/20 z-10" />
-          <img 
-            src="/images/truck.jpg" 
-            alt="Target Heating and Air Conditioning Truck" 
-            className="w-full h-full object-cover object-center"
-          />
+        {/* Background Gradient & Pattern */}
+        <div className="absolute inset-0 z-0 bg-slate-950">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.15),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
         </div>
 
         <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
+          <div className="max-w-3xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <span className="inline-block py-1 px-3 rounded-full bg-primary/20 text-primary-foreground border border-primary/30 text-sm font-semibold tracking-wider uppercase mb-6 backdrop-blur-sm">
-                Edmonton's Premier HVAC Experts
+              <span className="inline-block py-2 px-4 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold tracking-[0.2em] uppercase mb-8 backdrop-blur-sm shadow-2xl shadow-blue-500/10">
+                Precision Comfort Engineering
               </span>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6 text-balance">
-                Total Comfort For Your Home.
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-[1.1] mb-8 text-balance tracking-tight">
+                Target Heating <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">& Air Conditioning</span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed max-w-xl">
-                Target Heating and Air Conditioning provides top-tier furnaces, AC units, and renovations. From small projects to new construction, we build comfort from start to finish.
+              <p className="text-lg md:text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl mx-auto font-light">
+                Elevating home climate through sophisticated engineering and uncompromising quality. From high-performance furnaces to advanced cooling systems.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild className="rounded-full h-14 px-8 text-base shadow-lg shadow-primary/30 hover:-translate-y-1 transition-all duration-300">
-                  <Link href="/contact">Get a Free Quote</Link>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <Button size="lg" asChild className="rounded-full h-16 px-10 text-base font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_40px_rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all duration-500 border-0">
+                  <Link href="/contact">Request Consultation</Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild className="rounded-full h-14 px-8 text-base bg-white/10 text-white border-white/20 hover:bg-white/20 hover:text-white backdrop-blur-md transition-all duration-300">
-                  <Link href="/services">Our Services</Link>
+                <Button size="lg" variant="outline" asChild className="rounded-full h-16 px-10 text-base bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20 backdrop-blur-xl transition-all duration-500">
+                  <Link href="/services">Explore Services</Link>
                 </Button>
               </div>
             </motion.div>
@@ -49,34 +45,34 @@ export default function Home() {
       </section>
 
       {/* Trust Indicators */}
-      <section className="py-12 bg-white border-b border-border relative z-30">
+      <section className="py-20 bg-white border-b border-slate-100 relative z-30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-border">
-            <div className="flex items-center gap-4 md:px-6 py-4 md:py-0">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                <CheckCircle2 className="h-6 w-6" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="flex flex-col items-center text-center gap-6 p-8 rounded-3xl hover:bg-slate-50 transition-colors duration-500">
+              <div className="h-16 w-16 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0 shadow-sm">
+                <CheckCircle2 className="h-8 w-8" />
               </div>
               <div>
-                <h3 className="font-semibold text-foreground">Reliable Service</h3>
-                <p className="text-sm text-muted-foreground">Expert technicians you can trust</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 font-display uppercase tracking-wider">Unrivaled Precision</h3>
+                <p className="text-slate-500 font-light leading-relaxed">Meticulous attention to every engineering detail.</p>
               </div>
             </div>
-            <div className="flex items-center gap-4 md:px-6 py-4 md:py-0">
-              <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0">
-                <HomeIcon className="h-6 w-6" />
+            <div className="flex flex-col items-center text-center gap-6 p-8 rounded-3xl hover:bg-slate-50 transition-colors duration-500">
+              <div className="h-16 w-16 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0 shadow-sm">
+                <HomeIcon className="h-8 w-8" />
               </div>
               <div>
-                <h3 className="font-semibold text-foreground">Complete Solutions</h3>
-                <p className="text-sm text-muted-foreground">Renovations & New Construction</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 font-display uppercase tracking-wider">Bespoke Solutions</h3>
+                <p className="text-slate-500 font-light leading-relaxed">Tailored environments for distinguished homes.</p>
               </div>
             </div>
-            <div className="flex items-center gap-4 md:px-6 py-4 md:py-0">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                <PhoneCall className="h-6 w-6" />
+            <div className="flex flex-col items-center text-center gap-6 p-8 rounded-3xl hover:bg-slate-50 transition-colors duration-500">
+              <div className="h-16 w-16 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0 shadow-sm">
+                <PhoneCall className="h-8 w-8" />
               </div>
               <div>
-                <h3 className="font-semibold text-foreground">Always Available</h3>
-                <p className="text-sm text-muted-foreground">(780) 465-7044</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 font-display uppercase tracking-wider">24/7 Concierge</h3>
+                <p className="text-slate-500 font-light leading-relaxed">Immediate response for elite comfort assurance.</p>
               </div>
             </div>
           </div>

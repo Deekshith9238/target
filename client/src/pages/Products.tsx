@@ -34,48 +34,49 @@ export default function Products() {
   ];
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-slate-50/50">
+    <div className="pt-24 pb-20 min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-white border-b border-border py-16 mb-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="bg-slate-950 py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
-              Our Products
+            <span className="text-blue-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Curated Systems</span>
+            <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-8 tracking-tight">
+              Elite <span className="text-blue-500">Equipment</span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Target Heating and Air Conditioning provides premium equipment for all your climate control needs. 
-              We stand behind the products we install.
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+              We select only the most advanced thermal systems, engineered for longevity and peak efficiency.
             </p>
           </motion.div>
         </div>
       </div>
 
       {/* Products Grid */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {products.map((product, index) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.15, duration: 0.5 }}
+              transition={{ delay: index * 0.15, duration: 0.8 }}
             >
-              <Card className="h-full border border-border/50 shadow-lg shadow-black/5 hover:shadow-xl hover:border-primary/20 transition-all duration-300 group overflow-hidden">
-                <CardHeader className={`${product.color} pb-8 pt-8`}>
-                  <div className="flex items-center justify-between mb-4">
-                    <product.icon className={`h-12 w-12 ${product.iconColor} group-hover:scale-110 transition-transform duration-300`} />
+              <Card className="h-full border-0 shadow-2xl shadow-blue-900/5 hover:shadow-blue-900/10 transition-all duration-500 group overflow-hidden rounded-[2rem] bg-white">
+                <CardHeader className="p-10 pb-0">
+                  <div className="h-16 w-16 rounded-2xl bg-slate-50 flex items-center justify-center mb-8 group-hover:bg-blue-600 transition-colors duration-500">
+                    <product.icon className={`h-8 w-8 text-blue-600 group-hover:text-white transition-colors duration-500`} />
                   </div>
-                  <CardTitle className="text-2xl font-display text-foreground">{product.title}</CardTitle>
-                  <CardDescription className="text-base font-medium mt-2 text-foreground/70">
+                  <CardTitle className="text-3xl font-display font-bold text-slate-900 tracking-tight">{product.title}</CardTitle>
+                  <CardDescription className="text-lg font-light mt-4 text-slate-500 leading-relaxed">
                     {product.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="pt-8">
-                  <p className="text-muted-foreground leading-relaxed">
+                <CardContent className="p-10 pt-6">
+                  <p className="text-slate-600 leading-relaxed font-light italic border-l-2 border-blue-500/20 pl-6">
                     {product.details}
                   </p>
                 </CardContent>

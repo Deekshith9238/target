@@ -27,52 +27,48 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        scrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-3" : "bg-transparent py-5"
+        "fixed top-0 w-full z-50 transition-all duration-500",
+        scrolled ? "bg-white/80 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.04)] py-4" : "bg-transparent py-8"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-primary text-primary-foreground p-2 rounded-lg group-hover:scale-105 transition-transform">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="bg-blue-600 text-white p-2.5 rounded-xl shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-500">
               <ThermometerSun className="h-6 w-6" />
             </div>
             <div>
-              <span className="block font-display font-bold text-xl leading-none text-foreground tracking-tight">
-                Target Heating
-              </span>
-              <span className="block text-xs font-medium text-muted-foreground uppercase tracking-widest">
-                & Air Conditioning
+              <span className={cn(
+                "block font-display font-bold text-2xl leading-none tracking-tight transition-colors duration-500",
+                !scrolled && location === "/" ? "text-white" : "text-slate-900"
+              )}>
+                Target <span className="text-blue-500 font-extrabold">HVAC</span>
               </span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-sm font-semibold transition-colors hover:text-primary",
-                  location === link.href ? "text-primary" : "text-muted-foreground"
+                  "text-sm font-bold tracking-wider uppercase transition-all duration-500 hover:text-blue-500 relative group/link",
+                  scrolled || location !== "/" ? (location === link.href ? "text-blue-600" : "text-slate-600") : (location === link.href ? "text-blue-400" : "text-slate-300")
                 )}
               >
                 {link.label}
+                <span className={cn(
+                  "absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-500 group-hover/link:w-full",
+                  location === link.href ? "w-full" : ""
+                )} />
               </Link>
             ))}
             
-            <div className="flex items-center gap-4 ml-4">
-              <div className="hidden lg:flex items-center gap-2 text-sm font-semibold text-foreground">
-                <div className="bg-accent/10 p-2 rounded-full text-primary">
-                  <Phone className="h-4 w-4" />
-                </div>
-                (780) 465-7044
-              </div>
-              <Button asChild className="rounded-full shadow-lg shadow-primary/20 transition-transform hover:-translate-y-0.5">
-                <Link href="/contact">Get a Quote</Link>
-              </Button>
-            </div>
+            <Button asChild className="rounded-full h-12 px-8 bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-500/20 transition-all duration-500 hover:-translate-y-1 border-0">
+              <Link href="/contact">Inquire Now</Link>
+            </Button>
           </nav>
 
           {/* Mobile Nav */}

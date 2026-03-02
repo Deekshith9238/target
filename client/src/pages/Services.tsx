@@ -34,27 +34,27 @@ export default function Services() {
   return (
     <div className="pt-24 pb-20 min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-primary/5 py-16 mb-16 rounded-b-[3rem]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-slate-950 py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-center max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-6">
-              Professional Services
+            <span className="text-blue-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Expertise</span>
+            <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-8 tracking-tight">
+              Master <span className="text-blue-500">Craftsmanship</span>
             </h1>
-            <p className="text-lg text-muted-foreground">
-              Whether you are updating your current space or building your dream home from the ground up, 
-              Target Heating has the expertise to execute your project flawlessly.
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+              From delicate architectural retrofits to massive new builds, we execute with surgical precision.
             </p>
           </motion.div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
+        <div className="space-y-32">
           {services.map((service, index) => (
             <motion.div 
               key={service.id}

@@ -3,46 +3,54 @@ import { ShieldCheck, Target, Users, Award } from "lucide-react";
 
 export default function About() {
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-slate-50">
+    <div className="pt-24 pb-20 min-h-screen bg-white">
       {/* Hero */}
-      <div className="bg-primary py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-foreground/10 to-transparent"></div>
+      <div className="bg-slate-950 py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.1),transparent_50%)]"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6">
-              About Target Heating
+            <span className="text-blue-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Heritage</span>
+            <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-8 tracking-tight">
+              Engineering <span className="text-blue-500">Excellence</span>
             </h1>
-            <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto font-medium">
-              Your Reliable Heating and Air Conditioning Partner
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+              Dedicated to the art of climate control since our inception.
             </p>
           </motion.div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-        <div className="max-w-4xl mx-auto">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
+        <div className="max-w-5xl mx-auto">
           {/* Main Content */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="bg-white rounded-3xl p-8 md:p-12 shadow-xl shadow-slate-200/50 border border-slate-100 mb-16"
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="bg-white rounded-[2rem] p-10 md:p-16 shadow-2xl shadow-blue-900/5 border border-slate-100 mb-20"
           >
-            <h2 className="text-3xl font-display font-bold text-foreground mb-6">Who We Are</h2>
-            <div className="prose prose-lg prose-slate max-w-none text-muted-foreground leading-relaxed">
-              <p>
-                At Target Heating and Air Conditioning, we believe that your home should be your sanctuary—comfortable, safe, and perfectly climate-controlled all year round. 
-              </p>
-              <p>
-                Based in the heart of the community, we have built our reputation on a foundation of trust, technical excellence, and unwavering commitment to customer satisfaction. Whether you're facing a freezing winter night or a sweltering summer day, our team is equipped to ensure your HVAC systems are functioning flawlessly.
-              </p>
-              <p>
-                We don't just install equipment; we design complete comfort solutions tailored to the unique layout of your home and your family's specific needs.
-              </p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <h2 className="text-4xl font-display font-bold text-slate-900 mb-8 tracking-tight">A Legacy of Trust</h2>
+                <div className="space-y-6 text-slate-600 leading-relaxed font-light text-lg">
+                  <p>
+                    At Target Heating and Air Conditioning, we define luxury through comfort. Your home is a masterpiece, and we provide the invisible engineering that makes it livable.
+                  </p>
+                  <p>
+                    Our approach integrates technical mastery with aesthetic sensitivity. We don't just install systems; we harmonize technology with your living space.
+                  </p>
+                </div>
+              </div>
+              <div className="relative">
+                <div className="aspect-square bg-slate-50 rounded-2xl border border-slate-100 flex items-center justify-center overflow-hidden">
+                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent" />
+                   <Target className="w-32 h-32 text-blue-500 opacity-20" />
+                </div>
+              </div>
             </div>
           </motion.div>
 
