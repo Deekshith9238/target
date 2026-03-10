@@ -8,19 +8,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-white mb-6">
-              <div className="bg-primary text-primary-foreground p-2 rounded-lg">
-                <ThermometerSun className="h-6 w-6" />
-              </div>
-              <div>
-                <span className="block font-display font-bold text-xl leading-none tracking-tight">
-                  Target Heating
-                </span>
-                <span className="block text-[10px] font-medium text-slate-400 uppercase tracking-widest">
-                  & Air Conditioning
-                </span>
-              </div>
-            </div>
+            <Link href="/" className="flex items-center gap-3 group mb-6">
+              <img 
+                src="/images/logo.jpg" 
+                alt="Target Heating & Air Conditioning" 
+                className="h-10 w-auto rounded-md shadow-sm opacity-80 hover:opacity-100 transition-opacity"
+              />
+            </Link>
             <p className="text-sm text-slate-400 leading-relaxed">
               Your reliable heating and air conditioning partner. Providing top-tier installations, renovations, and maintenance for your comfort.
             </p>

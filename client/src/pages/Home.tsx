@@ -21,18 +21,18 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <span className="inline-block py-2 px-4 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold tracking-[0.2em] uppercase mb-8 backdrop-blur-sm shadow-2xl shadow-blue-500/10">
+              <span className="inline-block py-2 px-4 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-bold tracking-[0.2em] uppercase mb-8 backdrop-blur-sm shadow-2xl shadow-cyan-500/10">
                 Precision Comfort Engineering
               </span>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-[1.1] mb-8 text-balance tracking-tight">
-                Target Heating <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">& Air Conditioning</span>
+                Target Heating <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-cyan-400">& Air Conditioning</span>
               </h1>
               <p className="text-lg md:text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl mx-auto font-light">
                 Elevating home climate through sophisticated engineering and uncompromising quality. From high-performance furnaces to advanced cooling systems.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Button size="lg" asChild className="rounded-full h-16 px-10 text-base font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_40px_rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all duration-500 border-0">
+                <Button size="lg" asChild className="rounded-full h-16 px-10 text-base font-semibold bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white shadow-[0_0_40px_rgba(239,68,68,0.3)] hover:-translate-y-1 transition-all duration-500 border-0">
                   <Link href="/contact">Request Consultation</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild className="rounded-full h-16 px-10 text-base bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20 backdrop-blur-xl transition-all duration-500">
@@ -49,7 +49,7 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="flex flex-col items-center text-center gap-6 p-8 rounded-3xl hover:bg-slate-50 transition-colors duration-500">
-              <div className="h-16 w-16 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0 shadow-sm">
+              <div className="h-16 w-16 rounded-2xl bg-cyan-50 flex items-center justify-center text-cyan-500 shrink-0 shadow-sm">
                 <CheckCircle2 className="h-8 w-8" />
               </div>
               <div>
@@ -58,7 +58,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col items-center text-center gap-6 p-8 rounded-3xl hover:bg-slate-50 transition-colors duration-500">
-              <div className="h-16 w-16 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0 shadow-sm">
+              <div className="h-16 w-16 rounded-2xl bg-purple-50 flex items-center justify-center text-purple-500 shrink-0 shadow-sm">
                 <HomeIcon className="h-8 w-8" />
               </div>
               <div>
@@ -67,11 +67,11 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col items-center text-center gap-6 p-8 rounded-3xl hover:bg-slate-50 transition-colors duration-500">
-              <div className="h-16 w-16 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 shrink-0 shadow-sm">
+              <div className="h-16 w-16 rounded-2xl bg-red-50 flex items-center justify-center text-red-500 shrink-0 shadow-sm">
                 <PhoneCall className="h-8 w-8" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 font-display uppercase tracking-wider">24/7 Concierge</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 font-display uppercase tracking-wider">Customer Service</h3>
                 <p className="text-slate-500 font-light leading-relaxed">Immediate response for elite comfort assurance.</p>
               </div>
             </div>
@@ -149,7 +149,7 @@ export default function Home() {
             <rect width="100%" height="100%" fill="url(#grid-pattern)" />
           </svg>
         </div>
-        
+
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-foreground mb-6">
             Ready to upgrade your home's comfort?

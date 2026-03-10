@@ -11,7 +11,8 @@ export default function Products() {
       details: "We offer top-of-the-line furnaces designed to provide reliable, efficient heating for your home. Our expert installation ensures optimal performance, lower energy bills, and consistent comfort during the harsh winter months.",
       icon: Thermometer,
       color: "bg-orange-50 text-orange-600 border-orange-100",
-      iconColor: "text-orange-500"
+      iconColor: "text-orange-500",
+      link: "https://www.armstrongair.com/products/gas-furnaces"
     },
     {
       id: "ac",
@@ -20,7 +21,8 @@ export default function Products() {
       details: "Keep your home cool and comfortable with our range of modern air conditioning units. We provide solutions that are energy-efficient, whisper-quiet, and appropriately sized for your specific living space.",
       icon: Wind,
       color: "bg-blue-50 text-blue-600 border-blue-100",
-      iconColor: "text-blue-500"
+      iconColor: "text-blue-500",
+      link: "https://www.armstrongair.com/hvac-basics/what-is-a-system"
     },
     {
       id: "garage-heaters",
@@ -29,7 +31,8 @@ export default function Products() {
       details: "Don't let a cold garage limit your space. Our garage heating solutions provide safe, effective warmth so you can work on projects, protect your vehicles, or expand your usable square footage regardless of the temperature outside.",
       icon: CarFront,
       color: "bg-slate-100 text-slate-700 border-slate-200",
-      iconColor: "text-slate-600"
+      iconColor: "text-slate-600",
+      link: "https://www.reznorhvac.com/all-products/electric-heat/"
     }
   ];
 
@@ -44,9 +47,9 @@ export default function Products() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-blue-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Curated Systems</span>
+            <span className="text-cyan-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Curated Systems</span>
             <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-8 tracking-tight">
-              Elite <span className="text-blue-500">Equipment</span>
+              Elite <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-red-400">Equipment</span>
             </h1>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
               We select only the most advanced thermal systems, engineered for longevity and peak efficiency.
@@ -65,22 +68,27 @@ export default function Products() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15, duration: 0.8 }}
             >
-              <Card className="h-full border-0 shadow-2xl shadow-blue-900/5 hover:shadow-blue-900/10 transition-all duration-500 group overflow-hidden rounded-[2rem] bg-white">
-                <CardHeader className="p-10 pb-0">
-                  <div className="h-16 w-16 rounded-2xl bg-slate-50 flex items-center justify-center mb-8 group-hover:bg-blue-600 transition-colors duration-500">
-                    <product.icon className={`h-8 w-8 text-blue-600 group-hover:text-white transition-colors duration-500`} />
-                  </div>
-                  <CardTitle className="text-3xl font-display font-bold text-slate-900 tracking-tight">{product.title}</CardTitle>
-                  <CardDescription className="text-lg font-light mt-4 text-slate-500 leading-relaxed">
-                    {product.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="p-10 pt-6">
-                  <p className="text-slate-600 leading-relaxed font-light italic border-l-2 border-blue-500/20 pl-6">
-                    {product.details}
-                  </p>
-                </CardContent>
-              </Card>
+              <a href={product.link} target="_blank" rel="noopener noreferrer" className="block h-full group focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 rounded-[2rem] hover:-translate-y-2 transition-transform duration-500">
+                <Card className="h-full border-0 shadow-2xl shadow-cyan-900/5 hover:shadow-cyan-900/10 transition-all duration-500 overflow-hidden rounded-[2rem] bg-white">
+                  <CardHeader className="p-10 pb-0">
+                    <div className="h-16 w-16 rounded-2xl bg-slate-50 flex items-center justify-center mb-8 group-hover:bg-cyan-600 transition-colors duration-500">
+                      <product.icon className={`h-8 w-8 text-cyan-600 group-hover:text-white transition-colors duration-500`} />
+                    </div>
+                    <CardTitle className="text-3xl font-display font-bold text-slate-900 tracking-tight group-hover:text-cyan-600 transition-colors duration-500 flex items-center gap-2">
+                      {product.title}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                    </CardTitle>
+                    <CardDescription className="text-lg font-light mt-4 text-slate-500 leading-relaxed">
+                      {product.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="p-10 pt-6">
+                    <p className="text-slate-600 leading-relaxed font-light italic border-l-2 border-red-500/20 pl-6">
+                      {product.details}
+                    </p>
+                  </CardContent>
+                </Card>
+              </a>
             </motion.div>
           ))}
         </div>

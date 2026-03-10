@@ -42,9 +42,9 @@ export default function Services() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-blue-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Expertise</span>
+            <span className="text-cyan-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Expertise</span>
             <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-8 tracking-tight">
-              Master <span className="text-blue-500">Craftsmanship</span>
+              Master <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-cyan-400">Craftsmanship</span>
             </h1>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
               From delicate architectural retrofits to massive new builds, we execute with surgical precision.
@@ -56,7 +56,7 @@ export default function Services() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
         <div className="space-y-32">
           {services.map((service, index) => (
-            <motion.div 
+            <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -68,12 +68,12 @@ export default function Services() {
               <div className="w-full lg:w-1/2 relative">
                 <div className="aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden bg-slate-100 border border-slate-200 shadow-2xl relative flex items-center justify-center group">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 z-0"></div>
-                  
+
                   {/* Abstract representation instead of stock image */}
                   <div className="relative z-10 p-12 bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-white transform group-hover:scale-105 transition-transform duration-500">
                     <service.icon className="w-32 h-32 text-primary opacity-80" />
                   </div>
-                  
+
                   <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-3xl"></div>
                   <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
                 </div>

@@ -34,17 +34,11 @@ export function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="bg-blue-600 text-white p-2.5 rounded-xl shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-500">
-              <ThermometerSun className="h-6 w-6" />
-            </div>
-            <div>
-              <span className={cn(
-                "block font-display font-bold text-2xl leading-none tracking-tight transition-colors duration-500",
-                !scrolled && location === "/" ? "text-white" : "text-slate-900"
-              )}>
-                Target <span className="text-blue-500 font-extrabold">HVAC</span>
-              </span>
-            </div>
+            <img
+              src="/images/logo.jpg"
+              alt="Target Heating & Air Conditioning"
+              className="h-12 w-auto rounded-lg shadow-[0_0_15px_rgba(239,68,68,0.15)] group-hover:shadow-[0_0_25px_rgba(239,68,68,0.25)] group-hover:scale-105 transition-all duration-500"
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -54,19 +48,19 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-sm font-bold tracking-wider uppercase transition-all duration-500 hover:text-blue-500 relative group/link",
-                  scrolled || location !== "/" ? (location === link.href ? "text-blue-600" : "text-slate-600") : (location === link.href ? "text-blue-400" : "text-slate-300")
+                  "text-sm font-bold tracking-wider uppercase transition-all duration-500 hover:text-red-500 relative group/link",
+                  scrolled || location !== "/" ? (location === link.href ? "text-red-600" : "text-slate-600") : (location === link.href ? "text-red-400" : "text-slate-300")
                 )}
               >
                 {link.label}
                 <span className={cn(
-                  "absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-500 group-hover/link:w-full",
+                  "absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-red-500 to-cyan-500 transition-all duration-500 group-hover/link:w-full",
                   location === link.href ? "w-full" : ""
                 )} />
               </Link>
             ))}
-            
-            <Button asChild className="rounded-full h-12 px-8 bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-500/20 transition-all duration-500 hover:-translate-y-1 border-0">
+
+            <Button asChild className="rounded-full h-12 px-8 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-orange-400 text-white shadow-xl shadow-red-500/20 transition-all duration-500 hover:-translate-y-1 border-0">
               <Link href="/contact">Inquire Now</Link>
             </Button>
           </nav>
@@ -112,8 +106,8 @@ export function Navbar() {
                     </Link>
                   ))}
                   <div className="mt-4 pt-4 border-t border-border">
-                    <a 
-                      href="tel:7804657044" 
+                    <a
+                      href="tel:7804657044"
                       className="flex items-center gap-3 px-4 py-3 rounded-lg bg-accent/10 text-primary font-semibold"
                     >
                       <Phone className="h-5 w-5" />

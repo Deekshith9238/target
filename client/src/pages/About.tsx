@@ -13,9 +13,9 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-blue-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Heritage</span>
+            <span className="text-cyan-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Heritage</span>
             <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-8 tracking-tight">
-              Engineering <span className="text-blue-500">Excellence</span>
+              Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-red-400">Excellence</span>
             </h1>
             <p className="text-xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
               Dedicated to the art of climate control since our inception.
@@ -27,7 +27,7 @@ export default function About() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
         <div className="max-w-5xl mx-auto">
           {/* Main Content */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -47,8 +47,8 @@ export default function About() {
               </div>
               <div className="relative">
                 <div className="aspect-square bg-slate-50 rounded-2xl border border-slate-100 flex items-center justify-center overflow-hidden">
-                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent" />
-                   <Target className="w-32 h-32 text-blue-500 opacity-20" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-red-500/5" />
+                  <Target className="w-32 h-32 text-cyan-500 opacity-20" />
                 </div>
               </div>
             </div>
