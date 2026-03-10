@@ -157,7 +157,7 @@ export default function Home() {
           <p className="text-primary-foreground/80 text-lg mb-10 max-w-2xl mx-auto">
             Contact Target Heating and Air Conditioning today to discuss your project, get a free quote, or schedule a service call.
           </p>
-          <Button size="lg" variant="secondary" asChild className="rounded-full h-14 px-10 text-base font-bold shadow-xl hover:scale-105 transition-transform duration-300 text-primary">
+          <Button size="lg" variant="secondary" asChild className="rounded-full h-14 px-10 text-base font-bold shadow-xl hover:scale-105 transition-transform duration-300 text-white">
             <Link href="/contact">Contact Us Now</Link>
           </Button>
         </div>
