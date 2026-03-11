@@ -4,6 +4,21 @@ import { Wrench, Hammer, HardHat, Ruler } from "lucide-react";
 export default function Services() {
   const services = [
     {
+      id: "new-construction",
+      title: "New Construction",
+      subtitle: "Your home from start to finish",
+      description: "From high-end custom homes to precision climate engineering, we deliver comprehensive HVAC solutions tailored to your unique architectural requirements. We handle everything from initial design to final deployment with surgical precision.",
+      points: [
+        "Specialized Custom Home Builds",
+        "Expert HVAC Design & Engineering",
+        "Precise Load Calculations & Sizing",
+        "Full Infrastructure & Ductwork Installation",
+        "Furnace and AC Deployment",
+        "Compliance with latest Energy Codes"
+      ],
+      icon: HardHat
+    },
+    {
       id: "renovations",
       title: "Renovations",
       subtitle: "From small to large projects",
@@ -15,19 +30,6 @@ export default function Services() {
         "Smart thermostat integration"
       ],
       icon: Wrench
-    },
-    {
-      id: "new-construction",
-      title: "New Construction",
-      subtitle: "Your home from start to finish",
-      description: "Building a new home? We handle the complete design and installation of your entire HVAC infrastructure, ensuring optimal airflow and comfort from day one.",
-      points: [
-        "Complete system design & sizing",
-        "Full ductwork installation",
-        "Furnace and AC deployment",
-        "Compliance with latest energy codes"
-      ],
-      icon: HardHat
     }
   ];
 
@@ -53,7 +55,7 @@ export default function Services() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 -mt-16 relative z-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-12 relative z-20">
         <div className="space-y-32">
           {services.map((service, index) => (
             <motion.div
@@ -81,8 +83,8 @@ export default function Services() {
 
               {/* Content */}
               <div className="w-full lg:w-1/2 space-y-6">
-                <div className="inline-flex items-center justify-center p-3 bg-primary/10 text-primary rounded-xl mb-2">
-                  {index === 0 ? <Hammer className="h-6 w-6" /> : <Ruler className="h-6 w-6" />}
+                <div className="inline-flex items-center justify-center p-4 bg-primary/10 text-primary rounded-2xl mb-6 shadow-sm">
+                  <service.icon className="h-8 w-8" />
                 </div>
                 <div>
                   <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">{service.title}</h2>
@@ -91,7 +93,7 @@ export default function Services() {
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {service.description}
                 </p>
-                <ul className="space-y-4 pt-4">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 pt-4">
                   {service.points.map((point, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="mt-1.5 h-2 w-2 rounded-full bg-primary shrink-0"></div>

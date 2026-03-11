@@ -37,7 +37,7 @@ export function Navbar() {
             <img
               src="/images/logo.jpg"
               alt="Target Heating & Air Conditioning"
-              className="h-12 w-auto rounded-lg shadow-[0_0_15px_rgba(239,68,68,0.15)] group-hover:shadow-[0_0_25px_rgba(239,68,68,0.25)] group-hover:scale-105 transition-all duration-500"
+              className="h-16 w-auto rounded-lg shadow-[0_0_15px_rgba(239,68,68,0.15)] group-hover:shadow-[0_0_25px_rgba(239,68,68,0.25)] group-hover:scale-105 transition-all duration-500"
             />
           </Link>
 
