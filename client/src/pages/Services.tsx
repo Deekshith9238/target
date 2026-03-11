@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import { Wrench, Hammer, HardHat, Ruler } from "lucide-react";
+import { Wrench, Hammer, HardHat, Building2 } from "lucide-react";
 
 export default function Services() {
   const services = [
     {
-      id: "new-construction",
-      title: "New Construction",
-      subtitle: "Your home from start to finish",
-      description: "From high-end custom homes to precision climate engineering, we deliver comprehensive HVAC solutions tailored to your unique architectural requirements. We handle everything from initial design to final deployment with surgical precision.",
+      id: "new-construction-residential",
+      title: "New Construction (Residential)",
+      subtitle: "Bespoke Comfort for Custom Homes",
+      description: "From high-end custom builds to family estates, we deliver comprehensive HVAC solutions tailored to your unique architectural requirements. We handle everything from initial load calculations to final deployment with surgical precision.",
       points: [
         "Specialized Custom Home Builds",
         "Expert HVAC Design & Engineering",
@@ -17,6 +17,21 @@ export default function Services() {
         "Compliance with latest Energy Codes"
       ],
       icon: HardHat
+    },
+    {
+      id: "new-construction-commercial",
+      title: "New Construction (Commercial)",
+      subtitle: "Professional Climate Solutions",
+      description: "We provide robust, high-performance HVAC infrastructure for commercial developments. Our team ensures your professional space meets rigorous air quality and efficiency standards while maintaining optimal comfort for occupants.",
+      points: [
+        "Commercial System Design & Engineering",
+        "High-Capacity Air Handling Units",
+        "Large-Scale Ductwork Systems",
+        "Energy Management & Zoning",
+        "Professional Ventilation Solutions",
+        "Commercial Grade Maintenance Plans"
+      ],
+      icon: Building2
     },
     {
       id: "renovations",
