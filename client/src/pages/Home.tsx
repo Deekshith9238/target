@@ -22,7 +22,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <span className="inline-block py-2 px-4 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-bold tracking-[0.2em] uppercase mb-8 backdrop-blur-sm shadow-2xl shadow-cyan-500/10">
-                Precision Comfort Engineering
+                When Comfort Matters Most
               </span>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white leading-[1.1] mb-8 text-balance tracking-tight">
                 Target <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-cyan-400">Heating & Air Conditioning</span>
