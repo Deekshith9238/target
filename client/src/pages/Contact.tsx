@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
-import { api, type ContactInput } from "@shared/routes";
-import { useCreateContactMessage } from "@/hooks/use-contact";
+import { useCreateContactMessage, type ContactInput } from "@/hooks/use-contact";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -17,16 +17,25 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
+const contactSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName:  z.string().min(1, "Last name is required"),
+  email:     z.string().email("Please enter a valid email address"),
+  phone:     z.string().optional(),
+  message:   z.string().min(10, "Message must be at least 10 characters"),
+});
+
 export default function Contact() {
   const mutation = useCreateContactMessage();
 
   const form = useForm<ContactInput>({
-    resolver: zodResolver(api.contact.create.input),
+    resolver: zodResolver(contactSchema),
     defaultValues: {
       firstName: "",
-      lastName: "",
-      email: "",
-      message: "",
+      lastName:  "",
+      email:     "",
+      phone:     "",
+      message:   "",
     },
   });
 
@@ -34,14 +43,14 @@ export default function Contact() {
     mutation.mutate(data, {
       onSuccess: () => {
         form.reset();
-      }
+      },
     });
   };
 
   return (
     <div className="pt-32 pb-20 min-h-screen bg-slate-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="text-center max-w-2xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -58,9 +67,9 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-6xl mx-auto">
-          
+
           {/* Contact Info (Left Side) */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -68,9 +77,9 @@ export default function Contact() {
           >
             <div className="bg-primary rounded-3xl p-8 text-white shadow-xl shadow-primary/20 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-              
+
               <h2 className="text-2xl font-display font-bold mb-8 relative z-10">Contact Information</h2>
-              
+
               <div className="space-y-8 relative z-10">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-white/10 rounded-xl shrink-0">
@@ -103,7 +112,7 @@ export default function Contact() {
                   <div>
                     <p className="text-primary-foreground/70 text-sm font-medium mb-1">Service Area</p>
                     <p className="text-lg font-semibold">
-                      Edmonton & Surrounding Areas
+                      Edmonton &amp; Surrounding Areas
                     </p>
                   </div>
                 </div>
@@ -112,14 +121,14 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact Form (Right Side) */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
             className="lg:col-span-3 bg-white rounded-3xl p-8 md:p-10 shadow-xl shadow-slate-200/50 border border-slate-100"
           >
             <h2 className="text-2xl font-display font-bold text-foreground mb-6">Send a Message</h2>
-            
+
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -130,10 +139,10 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel className="text-foreground/80 font-medium">First Name</FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="John" 
-                            className="bg-slate-50 border-slate-200 focus-visible:ring-primary focus-visible:border-primary px-4 py-6 text-base" 
-                            {...field} 
+                          <Input
+                            placeholder="John"
+                            className="bg-slate-50 border-slate-200 focus-visible:ring-primary focus-visible:border-primary px-4 py-6 text-base"
+                            {...field}
                           />
                         </FormControl>
                         <FormMessage />
@@ -147,10 +156,51 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel className="text-foreground/80 font-medium">Last Name</FormLabel>
                         <FormControl>
-                          <Input 
-                            placeholder="Doe" 
-                            className="bg-slate-50 border-slate-200 focus-visible:ring-primary focus-visible:border-primary px-4 py-6 text-base" 
-                            {...field} 
+                          <Input
+                            placeholder="Doe"
+                            className="bg-slate-50 border-slate-200 focus-visible:ring-primary focus-visible:border-primary px-4 py-6 text-base"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-foreground/80 font-medium">Email</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="john@example.com"
+                            type="email"
+                            className="bg-slate-50 border-slate-200 focus-visible:ring-primary focus-visible:border-primary px-4 py-6 text-base"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-foreground/80 font-medium">
+                          Phone <span className="text-muted-foreground font-normal">(optional)</span>
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="(780) 000-0000"
+                            type="tel"
+                            className="bg-slate-50 border-slate-200 focus-visible:ring-primary focus-visible:border-primary px-4 py-6 text-base"
+                            {...field}
                           />
                         </FormControl>
                         <FormMessage />
@@ -161,34 +211,15 @@ export default function Contact() {
 
                 <FormField
                   control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-foreground/80 font-medium">Email</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="john@example.com" 
-                          type="email"
-                          className="bg-slate-50 border-slate-200 focus-visible:ring-primary focus-visible:border-primary px-4 py-6 text-base" 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
                   name="message"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-foreground/80 font-medium">Message</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="How can we help you?" 
-                          className="bg-slate-50 border-slate-200 focus-visible:ring-primary focus-visible:border-primary px-4 py-4 min-h-[150px] text-base resize-none" 
-                          {...field} 
+                        <Textarea
+                          placeholder="How can we help you?"
+                          className="bg-slate-50 border-slate-200 focus-visible:ring-primary focus-visible:border-primary px-4 py-4 min-h-[150px] text-base resize-none"
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -196,9 +227,9 @@ export default function Contact() {
                   )}
                 />
 
-                <Button 
-                  type="submit" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  size="lg"
                   className="w-full sm:w-auto px-8 h-14 rounded-full text-base font-bold shadow-lg hover:shadow-xl transition-all duration-300 group"
                   disabled={mutation.isPending}
                 >
